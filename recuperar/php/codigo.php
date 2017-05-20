@@ -40,7 +40,7 @@
          echo "Se ha enviado el código de restauración al correo $correo";
       } else
       {
-         echo "msg";
+         echo $msg;
       }
    } else
    {
