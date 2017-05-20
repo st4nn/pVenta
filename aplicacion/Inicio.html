@@ -1,0 +1,91 @@
+<!-- Page -->
+<div class="page">
+  <div class="page-content padding-30 container-fluid">
+    <div class="row col-sm-12">
+      <div class="col-md-4">
+        <div class="panel">
+          <div class="panel-body">
+            <div class="panel panel-success">
+              <div class=panel-heading>
+                <h3 class="panel-title">Niños Activos</h3>
+              </div>
+              <div class="panel-body">
+                <div class="widget">
+                    <div id="cntInicio_NNAActivos" class="widget-content padding-30 bg-white">
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="panel">
+          <div class="panel-body">
+            <div class="panel panel-success">
+              <div class=panel-heading>
+                <h3 class="panel-title">Últimas Visitas</h3>
+              </div>
+              <div class="panel-body">
+                <div class="widget">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-body">
+            <div class="panel panel-success">
+              <div class=panel-heading>
+                <h3 class="panel-title">Próximos Eventos</h3>
+              </div>
+              <div class="panel-body">
+                <div class="widget">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="panel">
+          <div class="panel-body">
+            <div class="panel panel-success">
+              <div class=panel-heading>
+                <h3 class="panel-title">Notificaciones</h3>
+              </div>
+              <div class="panel-body">
+                <div class="widget">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      
+    </div>
+  </div>
+</div>
+<!-- End Page -->
+<script type="text/javascript">
+jQuery(document).ready(function()
+{
+  var Filtros = {Usuario : Usuario.id};
+      Filtros.Desde = "";
+      Filtros.Hasta = "";
+      Filtros.Areas = "";
+      Filtros.Clientes = "";
+  $("#cntInicio_NNAActivos").cargarCargarPanelEstadistico(
+    {
+      Filtros : Filtros,
+      Script : 'inicio_NNAActivos.php',
+      Color : 'bg-orange-600',
+      Criterio : 'idNNA' 
+    });
+});
+</script>

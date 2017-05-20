@@ -1,0 +1,217 @@
+<div id="cntUsuarios_VerUsuarios" class="page">
+	<div class="page-content container-fluid">
+		<div class="col-sm-12">
+			<div class="panel panel-primary panel-bordered">
+		        <div class="panel-heading">
+		        	<h3 class="panel-title">Usuarios Creados</h3>
+	          		<div class="panel-actions">
+	    				<button id="btnUsuarios_CrearUsuario" class="btn text-left btn-success btn-block"><i class="icon fa-user-plus"></i> Crear Usuario</button>
+		            </div>
+		        </div>
+		        <div class="panel-body">
+		        	<div class="table-responsive">
+			        	<table id="tblUsuarios" class="table table-hover table-striped">
+			        		<thead>
+			        			<tr>
+			        				<th class="width-100"></th>
+			        				<th>id</th>
+			        				<th>Usuario</th>
+			        				<th>Nombre</th>
+			        				<th>Cargo</th>
+			        				<th>Perfil</th>
+			        				<th>Correo</th>
+			        				<th>Sede</th>
+			        				<th>Estado</th>
+			        			</tr>
+			        		</thead>
+			        		<tbody>
+			        		</tbody>			        		
+			        	</table>
+		        	</div>
+		        </div>
+		    </div>
+		</div>
+	</div>
+</div>
+
+<div id="cntUsuarios_CrearUsuario" class="page hide">
+	<div class="page-content">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<h3 class="col-sm-8">Módulo de <span id="lblUsuarios_Crear_Tipo"></span> de usuarios
+						<span class="panel-desc">Por favor diligencie los datos a continuación </span>
+					</h3>
+					<div class="col-sm-4">
+	    				<button id="btnUsuarios_VerUsuarios" class="btn text-left btn-success pull-right"><i class="icon fa-user-plus"></i> Ver Usuarios</button>
+		            </div>
+				</div>
+				<form id="frmUsuarios_Crear">
+					<input type="hidden" class="guardar" id="txtUsuarios_Crear_idLogin" value="">
+					<div class="row row-lg">
+						<div id="cntUsuarios_Crear_DatosUsuario" class="col-lg-6 form-horizontal">
+							<div class="panel panel-primary panel-bordered">
+								<div class="panel-heading">
+									<h3 class="panel-title">Datos del Usuario</h3>
+								</div>
+								<div class="panel-body">
+									
+									<div class="form-group">
+										<label class="col-lg-12 col-sm-3 control-label">Nombre Completo
+											<span class="required">*</span>
+										</label>
+										<div class=" col-lg-12 col-sm-9">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="icon wb-user" aria-hidden="true"></i>
+												</span>
+												<input type="text" class="form-control guardar" id="txtUsuarios_Crear_Nombre" placeholder="Nombre Completo" required>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-12 col-sm-3 control-label">Cargo
+											<span class="required">*</span>
+										</label>
+										<div class=" col-lg-12 col-sm-9">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="icon fa-briefcase" aria-hidden="true"></i>
+												</span>
+												<input type="text" class="form-control guardar" id="txtUsuarios_Crear_Cargo" placeholder="Cargo" required>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-12 col-sm-3 control-label">Email
+											<span class="required">*</span>
+										</label>
+										<div class="col-lg-12 col-sm-9">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="icon wb-envelope" aria-hidden="true"></i>
+												</span>
+												<input type="email" class="form-control guardar" id="txtUsuarios_Crear_Correo" placeholder="email@email.com" required>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-lg-12 col-sm-3 control-label">Perfil</label>
+										<div class="col-lg-12 col-sm-9">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="icon fa-user-secret" aria-hidden="true"></i>
+												</span>
+												<select class="form-control guardar" id="txtUsuarios_Crear_idPerfil" required>
+													<option value="">Seleccione un Perfil</option>
+													<option value="1">1</option>
+													<option value="2">2</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-12 col-sm-3 control-label">Sede</label>
+										<div class="col-lg-12 col-sm-9">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="icon fa-building" aria-hidden="true"></i>
+												</span>
+												<select class="form-control guardar" id="txtUsuarios_Crear_idSede" required>
+													<option value="">Seleccione una Sede</option>
+													<option value="1">1</option>
+													<option value="2">2</option>
+												</select>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-lg-12 col-sm-3 control-label">Estado
+											<span class="required">*</span>
+										</label>
+										<div class="col-lg-12 col-sm-9">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="icon fa-envelope" aria-hidden="true"></i>
+												</span>
+												<select class="form-control guardar" id="txtUsuarios_Crear_Estado" placeholder="Estado" required>
+													<option value="">Seleccione un Estado</option>
+													<option value="Activo">Activo</option>
+													<option value="Inactivo">Inactivo</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- COLUMNA 2 -->
+						<div id="cntUsuarios_Crear_DatosSesion" class="col-lg-6 form-horizontal">
+							<div class="panel panel-primary panel-bordered">
+								<div class="panel-heading">
+									<h3 class="panel-title">Datos de la Sesión</h3>
+								</div>
+								<div class="panel-body">
+									<div class="form-group">
+										<label class="col-lg-12 col-sm-3 control-label">Nombre de Usuario
+											<span class="required">*</span>
+										</label>
+										<div class="col-lg-12 col-sm-9">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="icon fa-user" aria-hidden="true"></i>
+												</span>
+												<input type="text" class="form-control guardar" id="txtUsuarios_Crear_nUsuario" placeholder="Nombre de usuario" required>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-12 col-sm-3 control-label">Clave de Acceso
+											<span class="required">*</span>
+										</label>
+										<div class="col-lg-12 col-sm-9">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="icon wb-lock" aria-hidden="true"></i>
+												</span>
+												<input type="password" class="form-control guardar" id="txtUsuarios_Crear_Clave" placeholder="Contraseña" required>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-lg-12 col-sm-3 control-label">Nuevamente la clave, por favor
+											<span class="required">*</span>
+										</label>
+										<div class="col-lg-12 col-sm-9">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="icon wb-lock" aria-hidden="true"></i>
+												</span>
+												<input type="password" class="form-control guardar" id="txtUsuarios_Crear_Clave2" placeholder="Contraseña" required>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group col-lg-12 text-right padding-top-m">
+							<button type="submit" class="btn btn-primary">Guardar</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function() { 
+        $.getScript("../js/usuarios.js", function(ev)
+        {
+          funUsuarios();
+        });
+      });
+</script>
