@@ -9,10 +9,32 @@ function ready_login()
    * Fragmento para controlar si la sesión está activa
   **/
 
-  if (localStorage.lineaDFuego != null)
+  var Usuario = JSON.parse(localStorage.getItem('lineaDFuego'));  
+
+  var objDate = 16;
+  var sessionFlag = false;
+  
+  if (Usuario != null)
   {
+    var objUser = JSON.parse(localStorage.getItem('lineaDFuego'));
+    var cDate = new Date();
+    var sessionFlag = true;
+  
+    var pDate = new Date(objUser.cDate);
+  
+    objDate = cDate - pDate;  
+  }
+
+  
+  if (Math.round((objDate/1000)/60) < 60 && sessionFlag)
+  {
+    objUser.cDate = cDate;
+    localStorage.setItem("lineaDFuego", JSON.stringify(objUser));    
     window.location.replace("aplicacion/index.html");
-  } 
+  } else
+  {
+    delete localStorage.lineaDFuego;    
+  }
 }
 /**
  * Evento que se llama cuando el usuario hace submit para Iniciar Sesión
