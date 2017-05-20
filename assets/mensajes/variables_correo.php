@@ -1,9 +1,9 @@
 <?php
-	$username = 'apolo@wspcolombia.com';
+	$username = 'app@posventa.lineadfuego.com';
 	$host = 'mail.wspcolombia.com';
 	$puerto = 25;
-	$clave = 'J[XnOT@eI3TU';
-	$Titulo = 'Aplicación Apolo';
-	$url = 'https://apolo.wspcolombia.com/';
-	$nombreApp = 'Apolo APP';
+	$clave = 'o_Q]S$UsNhX@';
+	$Titulo = 'Aplicación Posventa';
+	$url = 'http://lineadfuego.com/posventa/';
+	$nombreApp = 'Posventa APP';
 ?>
