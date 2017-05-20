@@ -2,72 +2,16 @@
 <div class="page">
   <div class="page-content padding-30 container-fluid">
     <div class="row col-sm-12">
-      <div class="col-md-4">
-        <div class="panel">
-          <div class="panel-body">
-            <div class="panel panel-success">
-              <div class=panel-heading>
-                <h3 class="panel-title">Niños Activos</h3>
-              </div>
-              <div class="panel-body">
-                <div class="widget">
-                    <div id="cntInicio_NNAActivos" class="widget-content padding-30 bg-white">
-                    </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <h1>BIENVENIDO AL PORTAL DE SERVICIO Y MANTENIMIENTO</h1>
+      <p>Gracias por registrarse en el portal. Ahora es el momento de disfrutar de los beneficios de ser cliente y parte del equipo Linea D Fuego.</p>
+      <p>En este portal los clientes tienen acceso a la historia del mantenimiento y servicios de su producto, como tambien acceso a las inspecciones cumplidas, y aquellas por cumplir para garntizar la seguridad de los equipos.</p>
+      <p>Linea D Fuego es la unica empresa en Colombia que ofrece este servicio para los bomberos e incluye beneficios como:
 
-      <div class="col-md-4">
-        <div class="panel">
-          <div class="panel-body">
-            <div class="panel panel-success">
-              <div class=panel-heading>
-                <h3 class="panel-title">Últimas Visitas</h3>
-              </div>
-              <div class="panel-body">
-                <div class="widget">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="panel">
-          <div class="panel-body">
-            <div class="panel panel-success">
-              <div class=panel-heading>
-                <h3 class="panel-title">Próximos Eventos</h3>
-              </div>
-              <div class="panel-body">
-                <div class="widget">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="panel">
-          <div class="panel-body">
-            <div class="panel panel-success">
-              <div class=panel-heading>
-                <h3 class="panel-title">Notificaciones</h3>
-              </div>
-              <div class="panel-body">
-                <div class="widget">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-      
+      Inspección y lavado anual los primeros 2 años con concepto técnico emitido
+      Primer cambio de partes por desgaste (cremalleras, velcros y reflectivos), único en el mundo 
+      Arreglos por defecto de fabricación o manufactura durante 2 años
+      Traje temporal durante reparaciones o un traje nuevo en caso de defectos irreparables
+      Diagnóstico y reporte anual del estado y mantenimiento de los trajes de la unidad, que evitará compra innecesaria de uniformes que puedan ser reparados bajo indicaciones de la normatividad.</p>
     </div>
   </div>
 </div>
@@ -75,17 +19,5 @@
 <script type="text/javascript">
 jQuery(document).ready(function()
 {
-  var Filtros = {Usuario : Usuario.id};
-      Filtros.Desde = "";
-      Filtros.Hasta = "";
-      Filtros.Areas = "";
-      Filtros.Clientes = "";
-  $("#cntInicio_NNAActivos").cargarCargarPanelEstadistico(
-    {
-      Filtros : Filtros,
-      Script : 'inicio_NNAActivos.php',
-      Color : 'bg-orange-600',
-      Criterio : 'idNNA' 
-    });
 });
 </script>

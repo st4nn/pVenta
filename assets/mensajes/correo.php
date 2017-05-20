@@ -88,7 +88,7 @@
 			$mensaje .= utf8_decode($Mensaje);
 			$mensaje .= "<br><br><br><img src='cid:logo.png' width='auto' height='60' border='0' boder='0' />";
 				$mensaje .= utf8_decode('<br><br><br><p> Este mensaje fue enviado porque  está registrado en la base de datos de ' . $nombreApp . ' o porque pertenece a alguno de nuestros aliados estratégicos. Si desea dejar de recibir nuestros mensajes,<a href="#" target="_blank"> puede hacer clic aquí</a></p>');			
-				$mensaje .= utf8_decode('<p>Este mensaje ha sido generado de forma automática y las respuestas a la misma no serán tenidas en cuenta, para cualquier inquietud por favor contacte a nuestro <a href="mailto:Itcolombia.Servicedesk@wspgroup.com">administrador</a></p>');
+				$mensaje .= utf8_decode('<p>Este mensaje ha sido generado de forma automática y las respuestas a la misma no serán tenidas en cuenta, para cualquier inquietud por favor contacte a nuestro <a href="mailto:fifkovod@gmail.com">administrador</a></p>');
 			$mensaje .= '</body>';
 			$mensaje .= '</html>';
 
@@ -104,7 +104,7 @@
 				$mail->AddAddress ($value);
 			}
 		}
-		$mail->AddReplyTo("Itcolombia.Servicedesk@wspgroup.com");
+		$mail->AddReplyTo("fifkovod@gmail.com");
 		$mail->AddBCC($username);
 
 		// Envío del mensaje

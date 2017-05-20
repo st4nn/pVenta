@@ -27,7 +27,7 @@
          $sql = "SELECT restaurarClave.idLogin, DatosUsuarios.Nombre, DatosUsuarios.Correo, Login.Usuario
                   FROM 
                      restaurarClave 
-                     INNER JOIN DatosUsuarios ON restaurarClave.idLogin = DatosUsuarios.idLogin
+                     INNER JOIN datosUsuarios AS DatosUsuarios ON restaurarClave.idLogin = DatosUsuarios.idLogin
                      INNER JOIN Login ON restaurarClave.idLogin = Login.idLogin
                   WHERE restaurarClave.codigo = '$Codigo';";
          $result = $link->query($sql);

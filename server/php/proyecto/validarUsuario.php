@@ -10,13 +10,14 @@
    $Fecha = $_POST['pFecha'];
    
    $sql = "SELECT 
-               Login.idLogin AS 'idLogin',
+               Login.idLogin AS 'id',
                Login.Usuario AS 'Usuario',
                Login.Estado AS 'Estado',
                Datos.Nombre AS 'Nombre',
                Datos.Correo AS 'Correo',
                Datos.Cargo AS 'Cargo',
-               Datos.idPerfil AS 'idPerfil'
+               Datos.idPerfil AS 'idPerfil',
+               Login.idEmpresa AS 'idEmpresa'
             FROM 
                Login AS Login,
                datosUsuarios AS Datos
@@ -29,35 +30,19 @@
 
    if ( $result->num_rows == 1)
    {
-      class User
-      {
-         public $id;
-         public $username;
-         public $nombre;
-         public $email;
-         public $state;
-         public $cDate;
-         public $idUser;
-         
-         public $idPerfil;
-         public $cargo;
-      }
+      $idx = 0;
       
-
-         $row = $result->fetch_assoc();
-         $Users = new User();
-         $Users->id = utf8_encode($row['idLogin']);
-         $Users->username = utf8_encode($row['Usuario']);
-         $Users->nombre = utf8_encode($row['Nombre']);
-         $Users->email = utf8_encode($row['Correo']);
-         $Users->state = utf8_encode($row['Estado']);
-         $Users->cDate = $Fecha;
-         $Users->idUser = utf8_encode($row['idLogin']);
-         $Users->idPerfil = utf8_encode($row['idPerfil']);
-         $Users->cargo = utf8_encode($row['Cargo']);
-
+         $Resultado = array();
+         while ($row = mysqli_fetch_assoc($result))
+         {
+            foreach ($row as $key => $value) 
+            {
+               $Resultado[$key] = utf8_encode($value);
+            }
+            $idx++;
+         }
          mysqli_free_result($result);  
-         echo json_encode($Users);
+         echo json_encode($Resultado);
    } else
    {
       echo 0;
