@@ -60,6 +60,7 @@ function funCrearTraje()
 							Mensaje("Hey", 'Se ha creado unn nuevo registro de traje', 'success');
 							$("#frmTrajes_Crear")[0].reset();
 							$("#txtTrajes_Crear_Prefijo").val(obtenerPrefijo());
+							$("#cntTraje_Archivos_DivArchivo_Listado li").remove();
 						}
 					} else
 					{
