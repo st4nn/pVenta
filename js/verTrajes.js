@@ -64,6 +64,9 @@ function verTrajes_cargarTrajes()
 
 function fichaTraje_CargarFicha(vPrefijo)
 {
+	$("#tblFichaTraje_Inspecciones").destruirDataTable();
+	$("#tblFichaTraje_Servicios").destruirDataTable();
+	
 	$.post('../server/php/proyecto/trajes_CargarInfoTraje.php', 
 	{Usuario: Usuario.id, Prefijo : vPrefijo}, 
 	function(data, textStatus, xhr) 
@@ -81,6 +84,7 @@ function fichaTraje_CargarFicha(vPrefijo)
 				tdsDatos += '<td idNorma="' + val.idNorma + '">' + val.Norma + '</td>';
 			tdsDatos += '</tr>';
 
+			$("#txtFichaTraje_tmpResponsable").val(val.idBombero);
 			$("#txtFichaTraje_Responsable").val(val.idBombero);
 			$("#tblFichaTraje_Informacion tbody").append(tdsDatos);
 		}
@@ -99,7 +103,7 @@ function fichaTraje_CargarFicha(vPrefijo)
 				tdsDatos += '<td>' + val.Detalles_de_Inspeccion + '</td>';
 			tdsDatos += '</tr>';
 
-			$("#tblFichaTraje_Inspecciones tbody").append(tdsDatos);
+			$("#tblFichaTraje_Inspecciones").append(tdsDatos);
 		}
 
 		$("#tblFichaTraje_Servicios tbody tr").remove();
@@ -116,7 +120,7 @@ function fichaTraje_CargarFicha(vPrefijo)
 				tdsServicios += '<td>' + val.Detalles_de_Servicio + '</td>';
 			tdsServicios += '</tr>';
 
-			$("#tblFichaTraje_Inspecciones tbody").append(tdsDatos);
+			$("#tblFichaTraje_Servicios").append(tdsServicios);
 		}
 
 		$("#cntVerTraje_Archivos_DivArchivo_Listado li").remove();

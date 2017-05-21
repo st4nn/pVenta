@@ -8,7 +8,7 @@
 
    $Usuario = datosUsuario($idUsuario);
 
-   $Resultado = array('Datos' => 0, 'Inspecciones' => 0, 'Archivos' => 0, 'Error' => '');
+   $Resultado = array('Datos' => 0, 'Inspecciones' => 0, 'Archivos' => 0, 'Servicios' => 0,'Error' => '');
 
 
    $sql = "SELECT

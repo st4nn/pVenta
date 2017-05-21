@@ -10,9 +10,13 @@
 					<h1>Reporte de Inspecciones</h1>
 					<h4>Estimado <span id="lblFichaTraje_Usuario"></span> <span id="lblFichaTraje_Cargo"></span> de <span id="lblFichaTraje_Empresa"></span></h4>
 					<p>En la siguiente table encontrara la informacion perteneciente a las inspecciones del product en referencia.</p>
-					<br><br>
-					<div class="col-sm-12">
-						<div class="col-sm-7">
+				</div>
+			</div>
+
+			<div class="col-sm-12">
+				<div class="col-sm-8">
+					<div class="panel">
+						<div class="panel-body">
 							<h3>Información</h3>
 							<div class="table-responsive">
 					        	<table id="tblFichaTraje_Informacion" class="table table-hover table-striped">
@@ -27,16 +31,22 @@
 					        		<tbody></tbody>
 					        	</table>
 					        </div>
+					    </div>
+					</div>
+
+
+					<div class="panel">
+						<div class="panel-body">
 					        <br><br>
 					        <div class="col-sm-12">
-					        	<div class="col-sm-8">
+					        	<div class="col-sm-6">
 					        		<h3>Inspecciones</h3>	
 					        	</div>
-					        	<div class="col-sm-4">
+					        	<div class="col-sm-6">
 					        		<button id="btnFichaTraje_Inspeccion" class="btn btn-primary btn-block">Registrar Inspección</button>
 					        	</div>
 					        </div>
-							<div class="table-responsive">
+							<div>
 					        	<table id="tblFichaTraje_Inspecciones" class="table table-hover table-striped">
 					        		<thead>
 					        			<tr>
@@ -50,16 +60,21 @@
 					        		<tbody></tbody>
 					        	</table>
 					        </div>
+					    </div>
+					</div>
+
+					<div class="panel">
+						<div class="panel-body">
 					        <br><br>
 					        <div class="col-sm-12">
-					        	<div class="col-sm-8">
+					        	<div class="col-sm-6">
 					        		<h3>Servicios</h3>	
 					        	</div>
-					        	<div class="col-sm-4">
+					        	<div class="col-sm-6">
 					        		<button id="btnFichaTraje_Servicio" class="btn btn-primary btn-block">Registrar Servicio</button>
 					        	</div>
 					        </div>
-							<div class="table-responsive">
+							<div>
 					        	<table id="tblFichaTraje_Servicios" class="table table-hover table-striped">
 					        		<thead>
 					        			<tr>
@@ -74,12 +89,18 @@
 					        	</table>
 					        </div>
 						</div>
-						<div class="col-sm-5">
+					</div>
+				</div>
+
+				<div class="col-sm-4">
+					<div class="panel">
+						<div class="panel-body">
 							<form id="frmFichaTraje_Responsable">
 								<div class="form-group">
 									<label class="col-lg-12 col-sm-3 control-label">Responsable</label>
 									<div class="col-lg-12 col-sm-9">
 										<div class="input-group col-sm-12">
+											<input type="hidden" id="txtFichaTraje_tmpResponsable">
 											<select class="form-control guardar" id="txtFichaTraje_Responsable" required></select>
 											<span class="input-group-btn">
 						                      <button type="submit" class="btn btn-success"><i class="icon fa-floppy-o"></i></button>
@@ -88,16 +109,23 @@
 									</div>
 								</div>
 							</form>
-							<div class="margin-top-20">
-								<div id="cntVerTraje_Archivos"></div>
-							</div>
 						</div>
 					</div>
-			        <br><br>
-			        <p>Nos encontramos atentos a sus observaciones y comentarios. Si su product tiene inspecciones pendientes, contacte a un asesor inmediatamente al numero de telefono adjunto. </p>
-			        <p>Linea D Fuego
-					Cra 35 No. 12B – 60, Bogota, Colombia Tel: 0180034242
-					www.lineadfuego.com</p>
+					<div class="panel">
+						<div class="panel-body">
+							<div id="cntVerTraje_Archivos"></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12">
+					<div class="panel">
+						<div class="panel-body">
+					        <p>Nos encontramos atentos a sus observaciones y comentarios. Si su product tiene inspecciones pendientes, contacte a un asesor inmediatamente al numero de telefono adjunto. </p>
+					        <p>Linea D Fuego
+							Cra 35 No. 12B – 60, Bogota, Colombia Tel: 0180034242
+							www.lineadfuego.com</p>
+						</div>
+					</div>						
 				</div>
 			</div>
 		</div>

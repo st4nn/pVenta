@@ -7,9 +7,6 @@ function funFichaTraje()
 		cargarModulo("trajes/verTrajes.html", 'Ver Trajes');
 	});
 
-	$("#tblFichaTraje_Inspecciones").crearDataTable("");
-	$("#tblFichaTraje_Servicios").crearDataTable("");
-
 	$("#lblFichaTraje_Usuario").text(Usuario.Nombre);
 	$("#lblFichaTraje_Cargo").text(Usuario.Cargo);
 	$("#lblFichaTraje_Empresa").text(Usuario.Empresa);
@@ -64,6 +61,11 @@ function fichaTraje_CargarUsuarios()
 				});
 				
     			$("#txtFichaTraje_Responsable").append(tds);
+				if ($("#txtFichaTraje_tmpResponsable").length > 0)
+				{
+					$("#txtFichaTraje_Responsable").val($("#txtFichaTraje_tmpResponsable").val());
+					$("#txtFichaTraje_tmpResponsable").remove();
+				}
 			} else
 			{
 				Mensaje("Error", 'No hay usuarios registrados', "danger");

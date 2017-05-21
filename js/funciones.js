@@ -294,6 +294,16 @@ $.fn.crearDataTable = function(tds, callback)
   callback();
 }
 
+$.fn.destruirDataTable = function()
+{
+  var idObj = $(this).attr("id");
+  if ($("#" + idObj + "_wrapper").length == 1)
+    {
+        $(this).dataTable().fnDestroy();
+    }
+  $(this).find("tbody").find("tr").remove();
+}
+
 $.fn.iniciarObjArchivos = function(parametros)
 {
   var idObj = $(this).attr("id").replace("cnt", "");
