@@ -111,6 +111,10 @@
 											</div>
 										</div>
 									</div>
+
+									<div class="form-group">
+					                  
+					                </div>
 									<div class="form-group">
 										<label class="col-lg-12 col-sm-3 control-label">Empresa</label>
 										<div class="col-lg-12 col-sm-9">
@@ -118,11 +122,14 @@
 												<span class="input-group-addon">
 													<i class="icon fa-building" aria-hidden="true"></i>
 												</span>
-												<select class="form-control guardar" id="txtUsuarios_Crear_idSede" required>
-													<option value="">Seleccione una Empresa</option>
-													<option value="1">1</option>
-													<option value="2">2</option>
-												</select>
+												<div class="input-group col-sm-12">
+													<select class="form-control guardar txtEmpresa" id="txtUsuarios_Crear_idEmpresa" required>
+														<option value="">Seleccione una Empresa</option>
+													</select>
+													<span class="input-group-btn">
+								                      <button id="btnUsuarios_CrearEmpresa" type="button" class="btn btn-success"><i class="icon wb-plus"></i></button>
+								                    </span>
+							                  	</div>
 											</div>
 										</div>
 									</div>
@@ -134,7 +141,7 @@
 										<div class="col-lg-12 col-sm-9">
 											<div class="input-group">
 												<span class="input-group-addon">
-													<i class="icon fa-envelope" aria-hidden="true"></i>
+													<i class="icon wb-check" aria-hidden="true"></i>
 												</span>
 												<select class="form-control guardar" id="txtUsuarios_Crear_Estado" placeholder="Estado" required>
 													<option value="">Seleccione un Estado</option>
@@ -205,6 +212,97 @@
 			</div>
 		</div>
 	</div>
+</div>
+<div id="cntCrearEmpresa" class="modal fade modal-primary" aria-hidden="true" aria-labelledby="cntCrearEmpresa" role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      	<form id="frmCrearEmpresa">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	            <span aria-hidden="true">×</span>
+	          </button>
+	          <h4 class="modal-title">Crear Empresa</h4>
+	        </div>
+
+	        <div class="modal-body">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="col-lg-12 col-sm-3 control-label">Nombre
+							<span class="required">*</span>
+						</label>
+						<div class=" col-lg-12 col-sm-9">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i class="icon wb-user" aria-hidden="true"></i>
+								</span>
+								<input type="text" class="form-control guardar" id="txtCrearEmpresa_Nombre" placeholder="Nombre Completo" required>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-12 col-sm-3 control-label">NIT
+							<span class="required">*</span>
+						</label>
+						<div class=" col-lg-12 col-sm-9">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i class="icon wb-user" aria-hidden="true"></i>
+								</span>
+								<input type="text" class="form-control guardar" id="txtCrearEmpresa_NIT" placeholder="NIT">
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-lg-12 col-sm-3 control-label">Descripcion
+							<span class="required">*</span>
+						</label>
+						<div class=" col-lg-12 col-sm-9">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i class="icon wb-user" aria-hidden="true"></i>
+								</span>
+								<textarea type="text" class="form-control guardar" id="txtCrearEmpresa_Descripcion" placeholder="Descripción"></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-12 col-sm-3 control-label">Teléfono
+							<span class="required">*</span>
+						</label>
+						<div class=" col-lg-12 col-sm-9">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i class="icon wb-user" aria-hidden="true"></i>
+								</span>
+								<input type="text" class="form-control guardar" id="txtCrearEmpresa_Telefono" placeholder="Teléfono">
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-12 col-sm-3 control-label">Dirección
+							<span class="required">*</span>
+						</label>
+						<div class=" col-lg-12 col-sm-9">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i class="icon wb-user" aria-hidden="true"></i>
+								</span>
+								<input type="text" class="form-control guardar" id="txtCrearEmpresa_Direccion" placeholder="Dirección">
+							</div>
+						</div>
+					</div>
+
+				</div>
+	        </div>
+
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-default margin-top-5" data-dismiss="modal">Cancelar</button>
+	          <button type="button" class="btn btn-primary margin-top-5">Guardar</button>
+	        </div>
+	    </form>
+      </div>
+    </div>
 </div>
 
 <script type="text/javascript">

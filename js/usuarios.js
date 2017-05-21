@@ -1,8 +1,66 @@
 function funUsuarios()
 {
 	$("#tblUsuarios").crearDataTable("");
-	usuarios_CargarUsuarios();	
+	usuarios_CargarUsuarios();
+	usuarios_CargarEmpresas();	
 	usuarios_CargarPerfiles();
+
+	$("#frmCrearEmpresa").on("submit", function(evento)
+		{
+			evento.preventDefault();
+
+			var Nombre = $("#txtCrearEmpresa_Nombre").val();
+			var NIT = $("#txtCrearEmpresa_NIT").val();
+			var Descripcion = $("#txtCrearEmpresa_Descripcion").val();
+			var Telefono = $("#txtCrearEmpresa_Telefono").val();
+			var Direccion = $("#txtCrearEmpresa_Direccion").val();
+
+			if (Nombre == '')
+			{
+				Mensaje("Error", 'No es posible crear una empresa', 'danger');
+			} else
+			{
+				$.post('../server/php/proyecto/configuracion_CrearEmpresa.php', 
+				{
+					Usuario : Usuario.id,
+					Nombre : Nombre,
+					NIT : NIT,
+					Descripcion : Descripcion,
+					Telefono : Telefono,
+					Direccion : Direccion
+				}, 
+				function(data, textStatus, xhr) 
+				{
+					if (typeof(data) == 'object')
+					{
+						if (data.Error != '')
+						{
+							Mensaje("Error", data.Error, 'danger');
+						} else
+						{
+							Mensaje("Hey", 'Se ha creado una nueva empresa', 'success');
+							$(".txtEmpresa").append('<option value="' + data.id + '">' + Nombre + '</option>');
+							$("#cntCrearEmpresa").modal('hide');
+							$("#frmCrearEmpresa")[0].reset();
+						}
+					} else
+					{
+						Mensaje("Error Crítico", data, 'cancel');
+					}
+				}, 'json');
+			}
+		});
+
+	$("#btnUsuarios_CrearEmpresa").on("click", function(evento)
+	{
+		evento.preventDefault();
+
+		$("#txtCrearEmpresa_Nombre").val('');
+		$("#txtCrearEmpresa_NIT").val('');
+		$("#txtCrearEmpresa_Descripcion").val('');
+
+		$("#cntCrearEmpresa").modal('show');
+	});
 
 	$("#btnUsuarios_CrearUsuario").on("click", function()
 	{
@@ -35,7 +93,7 @@ function funUsuarios()
 		$("#txtUsuarios_Crear_Cargo").val($(fila[4]).text());
 		$("#txtUsuarios_Crear_idPerfil").val($(fila[5]).attr("idPerfil"));
 		$("#txtUsuarios_Crear_Correo").val($(fila[6]).text());
-		$("#txtUsuarios_Crear_idSede").val($(fila[7]).attr("idSede"));
+		$("#txtUsuarios_Crear_idEmpresa").val($(fila[7]).attr("idEmpresa"));
 		$("#txtUsuarios_Crear_Estado").val($(fila[8]).text());
 
 		$("#txtUsuarios_Crear_nUsuario").val($(fila[2]).text());
@@ -154,3 +212,34 @@ function usuarios_CargarPerfiles()
 		}
 	}, "json");
 }
+
+function usuarios_CargarEmpresas()
+{
+	$("#txtUsuarios_Crear_idEmpresa option").remove();
+	$.post('../server/php/proyecto/configuracion_CargarEmpresas.php', {Usuario: Usuario.id}, function(data, textStatus, xhr) 
+	{
+		if (data == 0)
+		{
+			Mensaje("Error", "No hay datos en la Tabla", "danger");
+		} else
+		{
+			if (typeof(data) == "object")
+			{
+				var tds = "";
+				var tds2 = "";
+				
+				$.each(data, function(index, val) 
+				{
+	    			tds2 += '<option value="' + val.id + '">' + val.Nombre + ' (' + val.NIT + ')' + '</option>';
+				});
+				
+    			$("#txtUsuarios_Crear_idEmpresa").append(tds2);
+			} else
+			{
+				Mensaje("Error", data, "danger");
+			}
+		}
+	}, "json");
+}
+
+

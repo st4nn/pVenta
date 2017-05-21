@@ -105,6 +105,7 @@ $.fn.generarDatosEnvio = function(restricciones, callback)
 }
 function Mensaje(Titulo, Mensaje, Tipo)
 {
+  /*
   if (Tipo == undefined)
   {
     Tipo = "success";
@@ -119,7 +120,18 @@ function Mensaje(Titulo, Mensaje, Tipo)
       break;
     default:
         alertify.log(Mensaje);
-  }
+  }*/
+  if (Tipo == "danger")
+  {
+    Tipo = 'warning';
+  } 
+  swal({
+
+          title: Titulo,
+          text: Mensaje,
+          type: Tipo,
+          showCancelButton: true
+  }); 
 }
 
 function cerrarSesion()
@@ -280,4 +292,156 @@ $.fn.crearDataTable = function(tds, callback)
   $(this).DataTable(options);
   
   callback();
+}
+
+$.fn.iniciarObjArchivos = function(parametros)
+{
+  var idObj = $(this).attr("id").replace("cnt", "");
+  var tds = "";
+  
+    tds += '<div id="cnt' + idObj + '_DivArchivo" class="col-md-12 form-group">';
+      tds += '<div class="input-group input-group-file">';
+        tds += '<span class="input-group-btn">';
+            tds += '<span class="btn btn-success col-md-12 btn-file">';
+              tds += '<i class="icon wb-upload" aria-hidden="true"></i>';
+              tds += 'Agregar Archivos';
+              tds += '<input id="txt' + idObj + '_Archivo" type="file" name="...">';
+            tds += '</span>'; 
+        tds += '</span>';
+      tds += '</div>';
+    tds += '</div>';
+    tds += '<div class="row">';
+            tds += '<h4>Archivos Cargados</h4>';
+        tds += '<div class="margin-top-20">';
+            tds += '<div id="cnt' + idObj + '_DivArchivo_Listado" class="list-group-dividered list-group-full">';
+            tds += '</div>';
+        tds += '</div>';
+    tds += '</div>';
+
+    $(this).append(tds);
+    tds = "";
+
+    if ($("#cntModal_Archivos").length == 0)
+  {
+      tds += '<div class="modal fade" id="cntModal_Archivos" tabindex="-1" role="dialog" aria-hidden="true">';
+            tds += '<div class="modal-dialog">';
+                tds += '<div class="modal-content">';
+                    tds += '<form id="frmModal_Archivo" class="form-horizontal" role="form">';
+                        tds += '<div class="modal-header">';
+                            tds += '<h4 class="modal-title">Guardar Archivo <span id="lblModal_Archivo_Nombre"></span></h4>';
+                        tds += '</div>';
+                        tds += '<div class="modal-body">';
+                            tds += '<div class="form-group">';
+                                tds += '<div class="fg-line">';
+                                    tds += '<textarea id="txtModal_ArchivoDescripcion" class="form-control" rows="5" placeholder="Observaciones, Comentarios o Descripción del Archivo..."></textarea>';
+                                tds += '</div>';
+                            tds += '</div>';
+                        tds += '</div>';
+                        tds += '<div class="modal-footer">';
+                            tds += '<button type="button" id="btnModal_Archivo_Cancelar" data-dismiss="modal" class="btn btn-warning">Cancelar</button>';
+                            tds += '<button type="submit" class="btn btn-success">Enviar</button>';
+                        tds += '</div>';
+                    tds += '</form>';
+                tds += '</div>';
+            tds += '</div>';
+        tds += '</div>';
+
+        $("body").append(tds);
+
+         $("#btnModal_Archivo_Cancelar").on("click", function(evento)
+        {
+          evento.preventDefault();
+          $("#cntIngresar_Archivo").modal("hide");
+        });
+
+      $('#txt' + idObj + '_Archivo').on("change", function(event)
+      {
+        $("#txtModal_ArchivoDescripcion").val("");
+        $("#cntModal_Archivos").modal("show");
+        $("#lblModal_Archivo_Nombre").text($(this).val().replace("C:\\fakepath\\", ""));
+        $("#txtModal_ArchivoDescripcion").focus();
+
+        files = event.target.files;
+      });
+
+      $("#frmModal_Archivo").on("submit", function(evento)
+      {
+        evento.preventDefault();
+        $("#cntModal_Archivos").modal("hide");
+
+        var data = new FormData();
+
+        $.each(files, function(key, value)
+        {
+            data.append(key, value);
+        });
+
+        parametros.Prefijo = $(parametros.objPrefijo).val();
+
+        if (parametros != undefined && parametros != null)
+        {
+          $.each(parametros, function(index, val) 
+          {
+            if (index != 'objPrefijo')
+            {
+              data.append(index, val);
+            }
+          });
+        }
+
+
+        data.append("Observaciones", $("#txtModal_ArchivoDescripcion").val());
+        var nomArchivo = files[0].name;
+
+        $.ajax({
+              url: '../server/php/subirArchivos.php',
+              type: 'POST',
+              data: data,
+              cache: false,
+              dataType: 'html',
+              processData: false, // Don't process the files
+              contentType: false, // Set content type to false as jQuery will tell the server its a query string request
+              success: function(data, textStatus, jqXHR)
+              {
+                  if( parseInt(data) >= 1)
+                  {
+                    var extension = nomArchivo.split('.');
+                    if (extension.length > 0)
+                    {
+                      extension = extension[extension.length - 1];
+                    } else
+                    {
+                      extension = "obj";
+                    }
+
+                    var tds = "";
+                    tds += '<li class="list-group-item">';
+                      tds += '<small>';
+                        tds += '<time class="pull-right" datetime="' + obtenerFecha() + '">Hace un momento</time><br>';
+                      tds += '</small>';
+                      tds += '<p><a class="hightlight" href="../server/php/Archivos/' + parametros.Prefijo + '/' + nomArchivo + '" target="_blank">' + nomArchivo + '</a></p>';
+                      tds += '<p>' + $("#txtModal_ArchivoDescripcion").val() + '</p>';
+                      tds += '<small>Cargado por ';
+                        tds += '<a class="hightlight" href="javascript:void(0)">';
+                          tds += '<span> ' + Usuario.Nombre + '</span>';
+                        tds += '</a>';
+                      tds += '</small>';
+                    tds += '</li>';
+                    
+                    $('#cnt' + idObj + '_DivArchivo_Listado').prepend(tds);
+                  }
+                  else
+                  {
+                      Mensaje('Error:', data);
+                  }
+              },
+              error: function(jqXHR, textStatus, errorThrown)
+              {
+                  // Handle errors here
+                  Mensaje('Error:', textStatus);
+                  $("#cntIngresar_Archivo").modal("show");
+              }
+          });
+      });
+    }
 }

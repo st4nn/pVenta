@@ -1,0 +1,132 @@
+<div class="page">
+	<div class="page-content container-fluid">
+		<div class="row">
+			<div class="col-sm-7">
+				<div class="panel">
+					<div class="panel-body">
+						<form id="frmTrajes_Crear">
+							<input type="hidden" class="guardar" id="txtTrajes_Crear_id">
+      						<input type="hidden" class="guardar" id="txtTrajes_Crear_Prefijo">	
+							<div class="form-group">
+								<label class="col-lg-12 col-sm-3 control-label">Producto
+									<span class="required">*</span>
+								</label>
+								<div class="col-lg-12 col-sm-9">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<i class="icon wb-envelope" aria-hidden="true"></i>
+										</span>
+										<select class="form-control guardar" id="txtTrajes_Crear_idProducto" required>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-12 col-sm-3 control-label">Numero de Serie
+									<span class="required">*</span>
+								</label>
+								<div class="col-lg-12 col-sm-9">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<i class="icon wb-envelope" aria-hidden="true"></i>
+										</span>
+										<input type="text" class="form-control guardar" id="txtTrajes_Crear_Serie" required>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-12 col-sm-3 control-label">Año de Fabricación
+									<span class="required">*</span>
+								</label>
+								<div class="col-lg-12 col-sm-9">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<i class="icon wb-envelope" aria-hidden="true"></i>
+										</span>
+										<input type="text" class="form-control guardar" id="txtTrajes_Crear_Anio" required>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-12 col-sm-3 control-label">Norma</label>
+								<div class="col-lg-12 col-sm-9">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<i class="icon fa-building" aria-hidden="true"></i>
+										</span>
+										<div class="input-group col-sm-12">
+											<select class="form-control guardar txtNorma" id="txtTrajes_Crear_idNorma" required>
+												<option value="">Seleccione una Norma</option>
+											</select>
+											<span class="input-group-btn">
+						                      <button id="btnTrajes_CrearNorma" type="button" class="btn btn-success"><i class="icon wb-plus"></i></button>
+						                    </span>
+					                  	</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="form-group margin-top-20">
+								<button type="submit" class="btn btn-success btn-block"> Guardar</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-5">
+				<div class="panel">
+					<div class="panel-body">
+						<div id="cntTraje_Archivos"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="cntCrearNorma" class="modal fade modal-primary" aria-hidden="true" aria-labelledby="cntCrearNorma" role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      	<form id="frmCrearNorma">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	            <span aria-hidden="true">×</span>
+	          </button>
+	          <h4 class="modal-title">Crear Empresa</h4>
+	        </div>
+
+	        <div class="modal-body">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="col-lg-12 col-sm-3 control-label">Nombre
+							<span class="required">*</span>
+						</label>
+						<div class=" col-lg-12 col-sm-9">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i class="icon wb-user" aria-hidden="true"></i>
+								</span>
+								<input type="text" class="form-control guardar" id="txtCrearNorma_Nombre" placeholder="Nombre" required>
+							</div>
+						</div>
+					</div>
+				</div>
+	        </div>
+
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-default margin-top-5" data-dismiss="modal">Cancelar</button>
+	          <button type="button" class="btn btn-primary margin-top-5">Guardar</button>
+	        </div>
+	    </form>
+      </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function() { 
+        $.getScript("../js/funCrearTraje.js", function(ev)
+        {
+          funCrearTraje();
+        });
+      });
+</script>

@@ -21,11 +21,14 @@
             datosUsuarios.Cargo,
             datosUsuarios.idPerfil,
             Login.idEmpresa,
-            Perfiles.Nombre AS 'Perfil'
+            Perfiles.Nombre AS 'Perfil',
+            Empresas.id,
+            Empresas.Nombre AS 'Empresa'
           FROM
             Login
             INNER JOIN datosUsuarios ON Login.idLogin = datosUsuarios.idLogin
             LEFT JOIN Perfiles ON datosUsuarios.idPerfil = Perfiles.id
+            LEFT JOIN Empresas ON Empresas.id = Login.idEmpresa
          $where;";
 
    $result = $link->query($sql);
