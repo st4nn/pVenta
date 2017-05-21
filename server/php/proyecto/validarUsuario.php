@@ -17,13 +17,14 @@
                Datos.Correo AS 'Correo',
                Datos.Cargo AS 'Cargo',
                Datos.idPerfil AS 'idPerfil',
-               Login.idEmpresa AS 'idEmpresa'
+               Login.idEmpresa AS 'idEmpresa',
+               Empresas.Nombre AS 'Empresa'
             FROM 
-               Login AS Login,
-               datosUsuarios AS Datos
+               Login AS Login
+               LEFT JOIN Empresas ON Login.idEmpresa = Empresas.id
+               INNER JOIN datosUsuarios AS Datos ON Login.idLogin = Datos.idLogin
             WHERE 
-               Datos.idLogin = Login.idLogin
-               AND Login.Usuario = '$usuario' 
+               Login.Usuario = '$usuario' 
                AND Login.Clave = '" . $clave . "';";
 
    $result = $link->query($sql);
