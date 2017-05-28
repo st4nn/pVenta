@@ -6,12 +6,16 @@
    $idUsuario = $_POST['Usuario'];
    $Usuario = datosUsuario($idUsuario);
 
+   $condicion = '';
+   if ($Usuario['idPerfil'] <> 1)
+   {
+      $condicion = "WHERE Perfiles.id > '" . $Usuario['idPerfil'] . "'";
+   }
+
    $sql = "SELECT
             Perfiles.*
           FROM
-            Perfiles
-         WHERE
-            Perfiles.id >= '" . $Usuario['idPerfil'] . "';";
+            Perfiles $condicion;";
 
    $result = $link->query($sql);
 

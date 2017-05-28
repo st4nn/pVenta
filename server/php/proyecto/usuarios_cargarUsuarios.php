@@ -12,6 +12,11 @@
       $where = " WHERE Login.idEmpresa = '" . $Usuario['idEmpresa']  . "' AND datosUsuarios.idPerfil >= '" . $Usuario['idPerfil'] . "'";
    }
 
+   if ($Usuario['idPerfil'] == 3)
+   {
+      $where .= " AND Login.idLogin = '" . $idUsuario  . "'";
+   }
+
    $sql = "SELECT
             Login.idLogin as id,
             Login.Usuario,

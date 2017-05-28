@@ -9,7 +9,7 @@
    $Perfil = "";
    if ($Usuario['idPerfil'] > 1)
    {
-      $Perfil = " WHERE Empresas.id = '" . $Usuario['idEmpresas'] . "' OR Empresas.id IS NULL";
+      $Perfil = " WHERE Empresas.id = '" . $Usuario['idEmpresa'] . "' OR Empresas.id IS NULL";
    }
 
    $sql = "SELECT

@@ -8,12 +8,15 @@
    $fechaDiligenciada = addslashes($_POST['fechaDiligenciada']);
    $Prefijo = addslashes($_POST['Prefijo']);
 
+   $Usuario = datosUsuario($Responsable);
+   $idEmpresa = $Usuario['idEmpresa'];
+
    date_default_timezone_set('America/Bogota');
    
    $fecha = date('Y-m-d h:i:s');
    $Respuesta = array('Error' => '', 'id' => 0);
 
-   $sql = "UPDATE Trajes SET idBombero = '$Responsable' WHERE Prefijo = '$Prefijo';";
+   $sql = "UPDATE Trajes SET idBombero = '$Responsable', idEmpresa = '$idEmpresa' WHERE Prefijo = '$Prefijo';";
             
    $link->query(utf8_decode($sql));
    if ( $link->error == "")
