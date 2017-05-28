@@ -3,26 +3,26 @@
 		<div class="col-sm-12 row">
 				<div class="panel panel-primary panel-bordered">
 			        <div class="panel-heading">
-			        	<h3 class="panel-title">Trajes Creados</h3>
-		          		<div class="panel-actions">
-		    				<button id="btnVerTrajes_CrearTraje" class="btn text-left btn-success btn-block"><i class="icon fa-user-plus"></i> Crear Traje</button>
-			            </div>
+			        	<h3 class="panel-title">Inspecciones Registradas</h3>
 			        </div>
 			        <div class="panel-body">
 			        	<div class="table-responsive">
-				        	<table id="tblVerTrajes" class="table table-hover table-striped">
+				        	<table id="tblVerInspecciones" class="table table-hover table-striped">
 				        		<thead>
 				        			<tr>
-				        				<th class="width-100"></th>
-				        				<th>Codigo</th>
-				        				<th>Creado por</th>
-				        				<th>Producto</th>
-				        				<th>Norma</th>
-				        				<th>Serie</th>
-				        				<th>Año</th>
+				        				<th></th>
 				        				<th>Empresa</th>
 				        				<th>Bombero</th>
-				        				<th>Creado el</th>
+				        				<th>Registrada por</th>
+				        				<th>Fecha de Registro</th>
+				        				<th>Tipo Traje</th>
+				        				<th>Norma</th>
+				        				<th>Serie</th>
+				        				<th>Inspección</th>
+				        				<th>Descripción</th>
+				        				<th>Fecha Bajo Norma</th>
+				        				<th>Fecha Final Inspección</th>
+				        				<th>Detalles de Inspección</th>
 				        			</tr>
 				        		</thead>
 				        		<tbody>
@@ -39,9 +39,9 @@
 
 <script type="text/javascript">
     jQuery(document).ready(function() { 
-        $.getScript("../js/verTrajes.js", function(ev)
+        $.getScript("../js/verInspecciones.js", function(ev)
         {
-          funVerTrajes();
+          funVerInspecciones();
         });
       });
 </script>
