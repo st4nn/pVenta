@@ -125,6 +125,10 @@ function funFichaTraje()
 					{
 						fichaTraje_CargarFicha($("#txtVerTrajes_Prefijo").val());
 						$("#cntCrearInspeccion").modal('hide');
+						if (typeof verInspecciones_cargarInspecciones == 'function')
+						{
+							verInspecciones_cargarInspecciones();
+						}
 					}
 				} else
 				{
@@ -156,6 +160,11 @@ function funFichaTraje()
 					{
 						fichaTraje_CargarFicha($("#txtVerTrajes_Prefijo").val());
 						$("#cntCrearServicio").modal('hide');
+
+						if (typeof verServicios_cargarServicios == 'function')
+						{
+							verServicios_cargarServicios();
+						}
 					}
 				} else
 				{

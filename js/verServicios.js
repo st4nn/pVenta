@@ -1,17 +1,17 @@
-function funVerInspecciones()
+function funVerServicios()
 {
-	verInspecciones_cargarInspecciones();
+	verServicios_cargarServicios();
 }
 
-var verInspecciones_cargarInspecciones = function ()
+var verServicios_cargarServicios = function ()
 {
-	$.post('../server/php/proyecto/inspecciones_cargarInspecciones.php', 
+	$.post('../server/php/proyecto/servicios_cargarServicios.php', 
 	{
 		Usuario : Usuario.id
 	}, 
 	function(data, textStatus, xhr) 
 	{
-		$("#tblVerInspecciones tbody tr").remove();
+		$("#tblVerServicios tbody tr").remove();
 		if (data != 0)
 		{
 			var tds = '';
@@ -26,19 +26,19 @@ var verInspecciones_cargarInspecciones = function ()
 					tds += '<td>' + val.Producto + '</td>';
 					tds += '<td>' + val.Norma + '</td>';
 					tds += '<td>' + val.Serie + '</td>';
-					tds += '<td>' + val.TipoInspeccion + '</td>';
+					tds += '<td>' + val.TipoServicio + '</td>';
 					tds += '<td>' + val.Descripcion + '</td>';
-					tds += '<td>' + val.fechaBajoNorma + '</td>';
-					tds += '<td>' + val.fechaFinalInspeccion + '</td>';
+					tds += '<td>' + val.Garantia + '</td>';
+					tds += '<td>' + val.fechaServicio + '</td>';
 					tds += '<td>' + val.Detalles + '</td>';
 				tds += '</tr>';
 			});
 
-			$("#tblVerInspecciones").crearDataTable(tds);
+			$("#tblVerServicios").crearDataTable(tds);
 
 		} else
 		{
-			Mensaje("Hey", "Aún no hay trajes creados", 'danger');
+			Mensaje("Hey", "Aún no hay Servicios creados", 'danger');
 		}
 	}, 'json');
 }
