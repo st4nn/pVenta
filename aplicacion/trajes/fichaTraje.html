@@ -7,9 +7,9 @@
 			<div class="panel">
 				<div class="panel-body">
 					<input type="hidden" id="txtVerTrajes_Prefijo">
-					<h1>Reporte de Inspecciones</h1>
+					<h1>Ficha del Traje</h1>
 					<h4>Estimado <span id="lblFichaTraje_Usuario"></span> <span id="lblFichaTraje_Cargo"></span> de <span id="lblFichaTraje_Empresa"></span></h4>
-					<p>En la siguiente table encontrara la informacion perteneciente a las inspecciones del product en referencia.</p>
+					<p>En la siguiente table encontrara la informacion perteneciente al producto en referencia.</p>
 				</div>
 			</div>
 
@@ -97,6 +97,12 @@
 						<div class="panel-body">
 							<form id="frmFichaTraje_Responsable">
 								<div class="form-group">
+									<label class="col-lg-12 col-sm-3 control-label">Fecha de entrega</label>
+									<div class="col-lg-12 col-sm-9">
+										<input type="text" class="form-control guardar datepicker" id="txtFichaTraje_fechaDiligenciada">
+									</div>
+								</div>
+								<div class="form-group">
 									<label class="col-lg-12 col-sm-3 control-label">Responsable</label>
 									<div class="col-lg-12 col-sm-9">
 										<div class="input-group col-sm-12">
@@ -130,6 +136,201 @@
 			</div>
 		</div>
 	</div>
+</div>
+
+<div id="cntCrearInspeccion" class="modal fade modal-primary" aria-hidden="true" aria-labelledby="cntCrearInspeccion" role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      	<form id="frmCrearInspeccion">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	            <span aria-hidden="true">×</span>
+	          </button>
+	          <h4 class="modal-title">Crear Inspección</h4>
+	        </div>
+
+	        <div class="modal-body">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="col-lg-12 col-sm-3 control-label">Tipo de Inspección
+							<span class="required">*</span>
+						</label>
+						<div class=" col-lg-12 col-sm-9">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i class="icon wb-user" aria-hidden="true"></i>
+								</span>
+								<select type="text" class="form-control guardar" id="txtCrearInspeccion_idTipoInspeccion" placeholder="Tipo de Inspección" required></select>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-lg-12 col-sm-3 control-label">Descripción
+							<span class="required">*</span>
+						</label>
+						<div class=" col-lg-12 col-sm-9">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i class="icon wb-user" aria-hidden="true"></i>
+								</span>
+								<textarea class="form-control guardar" id="txtCrearInspeccion_Descripcion" placeholder="Descripción" required></textarea>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-lg-12 col-sm-3 control-label">Fecha Bajo Norma
+							<span class="required">*</span>
+						</label>
+						<div class=" col-lg-12 col-sm-9">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i class="icon wb-user" aria-hidden="true"></i>
+								</span>
+								<input type="text" class="form-control guardar" style="border:none; background:white;" id="txtCrearInspeccion_fechaBajoNorma" placeholder="Fecha Bajo Norma" readonly="true">
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-lg-12 col-sm-3 control-label">Fecha Final Inspección
+							<span class="required">*</span>
+						</label>
+						<div class=" col-lg-12 col-sm-9">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i class="icon wb-user" aria-hidden="true"></i>
+								</span>
+								<input type="text" class="form-control guardar datepicker" id="txtCrearInspeccion_fechaFinalInspeccion" placeholder="Fecha Final Inspección" required>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-lg-12 col-sm-3 control-label">Detalles
+							<span class="required">*</span>
+						</label>
+						<div class=" col-lg-12 col-sm-9">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i class="icon wb-user" aria-hidden="true"></i>
+								</span>
+								<textarea type="text" class="form-control guardar" id="txtCrearInspeccion_Detalles" placeholder="Detalles" required></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+	        </div>
+
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-default margin-top-5" data-dismiss="modal">Cancelar</button>
+	          <button type="submit" class="btn btn-primary margin-top-5">Guardar</button>
+	        </div>
+	    </form>
+      </div>
+    </div>
+</div>
+
+<div id="cntCrearServicio" class="modal fade modal-primary" aria-hidden="true" aria-labelledby="cntCrearServicio" role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      	<form id="frmCrearServicio">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	            <span aria-hidden="true">×</span>
+	          </button>
+	          <h4 class="modal-title">Crear Servicio</h4>
+	        </div>
+
+	        <div class="modal-body">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="col-lg-12 col-sm-3 control-label">Tipo de Servicio
+							<span class="required">*</span>
+						</label>
+						<div class=" col-lg-12 col-sm-9">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i class="icon wb-user" aria-hidden="true"></i>
+								</span>
+								<select type="text" class="form-control guardar" id="txtCrearServicio_idTipoServicio" placeholder="Tipo de Servicio" required>
+									<option value="Reparación">Reparación</option>
+									<option value="Cambio">Cambio</option>
+									<option value="Otro">Otro</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-lg-12 col-sm-3 control-label">Descripción
+							<span class="required">*</span>
+						</label>
+						<div class=" col-lg-12 col-sm-9">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i class="icon wb-user" aria-hidden="true"></i>
+								</span>
+								<textarea class="form-control guardar" id="txtCrearServicio_Descripcion" placeholder="Descripción" required></textarea>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-lg-12 col-sm-3 control-label">Fecha Servicio
+							<span class="required">*</span>
+						</label>
+						<div class=" col-lg-12 col-sm-9">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i class="icon wb-user" aria-hidden="true"></i>
+								</span>
+								<input type="text" class="form-control guardar datepicker" id="txtCrearServicio_fechaServicio" placeholder="Fecha Final Servicio" required>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-lg-12 col-sm-3 control-label">Garantía
+							<span class="required">*</span>
+						</label>
+						<div class=" col-lg-12 col-sm-9">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i class="icon wb-user" aria-hidden="true"></i>
+								</span>
+								<select type="text" class="form-control guardar" id="txtCrearServicio_Garantia" placeholder="Tipo de Servicio" required>
+									<option value="Si">Si</option>
+									<option value="No">No</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-lg-12 col-sm-3 control-label">Detalles
+							<span class="required">*</span>
+						</label>
+						<div class=" col-lg-12 col-sm-9">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i class="icon wb-user" aria-hidden="true"></i>
+								</span>
+								<textarea type="text" class="form-control guardar" id="txtCrearServicio_Detalles" placeholder="Detalles" required></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+	        </div>
+
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-default margin-top-5" data-dismiss="modal">Cancelar</button>
+	          <button type="submit" class="btn btn-primary margin-top-5">Guardar</button>
+	        </div>
+	    </form>
+      </div>
+    </div>
 </div>
 
 

@@ -455,3 +455,19 @@ $.fn.iniciarObjArchivos = function(parametros)
       });
     }
 }
+
+
+function sumarDias(tFecha, tiempo)
+{
+    var fecha = new Date(tFecha.substring(0, 4), parseInt(tFecha.substring(5, 7)) - 1, tFecha.substring(8, 10));
+
+        dia = fecha.getDate(),
+        mes = fecha.getMonth() + 1,
+        anio = fecha.getFullYear(),
+        addTime = tiempo * 86400; //Tiempo en segundos
+ 
+    fecha.setSeconds(addTime); //Añado el tiempo
+ 
+    
+    return fecha.getFullYear() + "-" + CompletarConCero(fecha.getMonth() + 1, 2) + '-' + fecha.getDate();
+}

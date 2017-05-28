@@ -5,6 +5,7 @@
 
    $idUsuario = addslashes($_POST['Usuario']);
    $Responsable = addslashes($_POST['idResponsable']);
+   $fechaDiligenciada = addslashes($_POST['fechaDiligenciada']);
    $Prefijo = addslashes($_POST['Prefijo']);
 
    date_default_timezone_set('America/Bogota');
@@ -18,6 +19,14 @@
    if ( $link->error == "")
    {
       $id = $link->insert_id;
+      $sql = "INSERT INTO trajes_Asignaciones(idUsuario, idTraje, idBombero, fechaDiligenciada) VALUES 
+      (
+         '$idUsuario',
+         '$Prefijo',
+         '$Responsable',
+         '$fechaDiligenciada'
+      );";
+      $link->query(utf8_decode($sql));
       $Respuesta['id'] = $id;
    } else
    {

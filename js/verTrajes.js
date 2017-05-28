@@ -25,7 +25,7 @@ function funVerTrajes()
 	});
 }
 
-function verTrajes_cargarTrajes()
+var verTrajes_cargarTrajes = function ()
 {
 	$.post('../server/php/proyecto/trajes_cargarTrajes.php', 
 	{
@@ -86,39 +86,48 @@ function fichaTraje_CargarFicha(vPrefijo)
 
 			$("#txtFichaTraje_tmpResponsable").val(val.idBombero);
 			$("#txtFichaTraje_Responsable").val(val.idBombero);
+			$("#txtFichaTraje_fechaDiligenciada").val(val.fechaDiligenciada);
 			$("#tblFichaTraje_Informacion tbody").append(tdsDatos);
 		}
 
 		$("#tblFichaTraje_Inspecciones tbody tr").remove();
 		if (data.Inspecciones != 0)
 		{
-			var val = data.Datos;
-			var tdsDatos = '';
-			
-			tdsDatos += '<tr>';
-				tdsDatos += '<td>' + val.Inspeccion + '</td>';
-				tdsDatos += '<td>' + val.Descripcion + '</td>';
-				tdsDatos += '<td>' + val.Fecha_bajo_Norma + '</td>';
-				tdsDatos += '<td>' + val.Fecha_Final_Inspeccion + '</td>';
-				tdsDatos += '<td>' + val.Detalles_de_Inspeccion + '</td>';
-			tdsDatos += '</tr>';
+			var tdsInspecciones = '';
 
-			$("#tblFichaTraje_Inspecciones").append(tdsDatos);
+			$.each(data.Inspecciones, function(index, val) 
+			{
+				tdsInspecciones += '<tr>';
+					tdsInspecciones += '<td>' + val.TipoDeInspeccion + '</td>';
+					tdsInspecciones += '<td>' + val.Descripcion + '</td>';
+					tdsInspecciones += '<td>' + val.fechaBajoNorma + '</td>';
+					tdsInspecciones += '<td>' + val.fechaFinalInspeccion + '</td>';
+					tdsInspecciones += '<td>' + val.Detalles + '</td>';
+				tdsInspecciones += '</tr>';
+			});
+
+
+			
+
+			$("#tblFichaTraje_Inspecciones").append(tdsInspecciones);
 		}
 
 		$("#tblFichaTraje_Servicios tbody tr").remove();
 		if (data.Servicios != 0)
 		{
-			var val = data.Servicios;
 			var tdsServicios = '';
+
+			$.each(data.Servicios, function(index, val) 
+			{
+				tdsServicios += '<tr>';
+					tdsServicios += '<td>' + val.TipoServicio + '</td>';
+					tdsServicios += '<td>' + val.Descripcion + '</td>';
+					tdsServicios += '<td>' + val.fechaServicio + '</td>';
+					tdsServicios += '<td>' + val.Garantia + '</td>';
+					tdsServicios += '<td>' + val.Detalles + '</td>';
+				tdsServicios += '</tr>';
+			});
 			
-			tdsServicios += '<tr>';
-				tdsServicios += '<td>' + val.Servicio + '</td>';
-				tdsServicios += '<td>' + val.Descripcion + '</td>';
-				tdsServicios += '<td>' + val.Fecha_Servicio + '</td>';
-				tdsServicios += '<td>' + val.Garantia + '</td>';
-				tdsServicios += '<td>' + val.Detalles_de_Servicio + '</td>';
-			tdsServicios += '</tr>';
 
 			$("#tblFichaTraje_Servicios").append(tdsServicios);
 		}

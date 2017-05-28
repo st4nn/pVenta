@@ -61,6 +61,10 @@ function funCrearTraje()
 							$("#frmTrajes_Crear")[0].reset();
 							$("#txtTrajes_Crear_Prefijo").val(obtenerPrefijo());
 							$("#cntTraje_Archivos_DivArchivo_Listado li").remove();
+							if (typeof verTrajes_cargarTrajes == 'function')
+							{
+								verTrajes_cargarTrajes();	
+							}
 						}
 					} else
 					{

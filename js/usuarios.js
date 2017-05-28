@@ -41,6 +41,7 @@ function funUsuarios()
 							Mensaje("Hey", 'Se ha creado una nueva empresa', 'success');
 							$(".txtEmpresa").append('<option value="' + data.id + '">' + Nombre + '</option>');
 							$("#cntCrearEmpresa").modal('hide');
+							$(".txtEmpresa").val(data.id);
 							$("#frmCrearEmpresa")[0].reset();
 						}
 					} else
@@ -134,6 +135,10 @@ function funUsuarios()
 				{
 					$("#txtUsuarios_Crear_idLogin").val(data.datos);
 					Mensaje("Hey", "Los datos han sido ingresados", "success");
+					if (typeof fichaTraje_CargarUsuarios == 'function')
+					{
+						fichaTraje_CargarUsuarios();	
+					}
 				}
 			}, "json");
 		});
